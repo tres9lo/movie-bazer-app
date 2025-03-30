@@ -63,41 +63,53 @@ function App() {
     setSelectedMovie(null);
   };
 
+  const handleSeeMore = () => {
+    // Add logic to load more movies or navigate to a dedicated page
+    console.log('See More clicked!');
+  };
+
   return (
     <div className="bg-black min-h-screen">
       <Navbar />
       <Hero />
-      <div class="flex items-center justify-between p-3">
-  <div class="flex items-center">
-    <div class="text-yellow-500 mr-2">
+      <div className="flex items-center justify-between p-3">
+        <div className="flex items-center">
+          <div className="text-yellow-500 mr-2"></div>
+          <h2 className="flex flex-cols-2 items-center justify-center gap-2 text-white font-semibold text-lg">
+            <GiFireBowl className="text-yellow-400" />
+            Trending
+          </h2>
+        </div>
+        <div className="border-b border-gray-700 flex-grow mx-4"></div>
+        <button onClick={handleSeeMore} className="text-gray-400 hover:text-gray-200">
+          See More
+        </button>
       </div>
-    <h2 class="flex flex-cols-2 items-center justify-center gap-2 text-white font-semibold text-lg"><GiFireBowl className='text-yellow-400' />Trending</h2>
-  </div>
-  <div class="border-b border-gray-700 flex-grow mx-4"></div>
-  <a href="#" class="text-gray-400 hover:text-gray-200">See More</a>
-</div>
       <div className="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} onCardClick={handleCardClick} />
         ))}
       </div>
       <MovieModal movie={selectedMovie} onClose={handleCloseModal} />
-      <div class="flex items-center justify-between p-3">
-  <div class="flex items-center">
-    <div class="text-yellow-500 mr-2">
+      <div className="flex items-center justify-between p-3">
+        <div className="flex items-center">
+          <div className="text-yellow-500 mr-2"></div>
+          <h2 className="flex flex-cols-2 items-center justify-center gap-2 text-white font-semibold text-lg">
+            YOU MAY LIKE THIS
+          </h2>
+        </div>
+        <div className="border-b border-gray-700 flex-grow mx-4"></div>
+        <button onClick={handleSeeMore} className="text-gray-400 hover:text-gray-200">
+          See More
+        </button>
       </div>
-    <h2 class="flex flex-cols-2 items-center justify-center gap-2 text-white font-semibold text-lg">YOU MAY LIKE THIS</h2>
-  </div>
-  <div class="border-b border-gray-700 flex-grow mx-4"></div>
-  <a href="#" class="text-gray-400 hover:text-gray-200">See More</a>
-</div>
-<div className="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="container mx-auto p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} onCardClick={handleCardClick} />
         ))}
       </div>
       <MovieModal movie={selectedMovie} onClose={handleCloseModal} />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
